@@ -1,0 +1,19 @@
+{
+    "name": "TatRat.Editor",
+    "rootNamespace": "TatRat.Editor",
+    "references": [
+        "GUID:0f165cae77701b74db7b02073e790fd7",
+        "GUID:84f4e0c2b7486b64192a026de30ae974"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
