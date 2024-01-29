@@ -1,0 +1,17 @@
+{
+    "name": "TatRat.SceneLoading",
+    "rootNamespace": "TatRat.SceneLoading",
+    "references": [
+        "GUID:0f165cae77701b74db7b02073e790fd7",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

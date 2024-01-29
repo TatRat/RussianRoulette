@@ -1,0 +1,22 @@
+{
+    "name": "TatRat.Main",
+    "rootNamespace": "TatRat.Main",
+    "references": [
+        "GUID:0f165cae77701b74db7b02073e790fd7",
+        "GUID:04368328795881640b90d372a409ddcb",
+        "GUID:60a65ff892152a947bde39d614e19ecf",
+        "GUID:84f4e0c2b7486b64192a026de30ae974",
+        "GUID:8c3e66cfcb80b8043a2e881deb230751",
+        "GUID:23c7e02d62c7f6144ae600873d4b0163",
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
