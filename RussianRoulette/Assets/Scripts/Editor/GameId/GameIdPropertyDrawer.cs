@@ -18,52 +18,6 @@ namespace TatRat.Editor.GameId
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            if (Attribute.IsDefined(fieldInfo, typeof(OldGameIdViewAttribute)))
-            {
-                OLD_OnGUI(position, property, label);
-            }
-            else
-            {
-                NEW_OnGUI(position, property, label);
-            }
-        }
-
-        private void OLD_OnGUI(Rect position, SerializedProperty property, GUIContent label)
-        {
-            using var _ = new EditorGUI.PropertyScope(position, label, property);
-
-            position = EditorGUI.PrefixLabel(position, label);
-            property.NextVisible(true);
-
-            var currentId = property.intValue;
-            var currentIdName = Settings.GetIdName(currentId);
-            var idNames = Settings.IdNames;
-            var currentIndex = Array.IndexOf(idNames, currentIdName);
-
-            var popupPosition = position;
-            popupPosition.width -= CLEAR_BUTTON_WIDTH;
-
-            var buttonPosition = position;
-            buttonPosition.width = CLEAR_BUTTON_WIDTH;
-            buttonPosition.x = position.x + position.width - CLEAR_BUTTON_WIDTH;
-
-            using var indent = new EditorGUI.IndentLevelScope(-EditorGUI.indentLevel);
-            using var changeCheck = new EditorGUI.ChangeCheckScope();
-            var newIndex = EditorGUI.Popup(popupPosition, string.Empty, currentIndex, idNames);
-
-            if (changeCheck.changed)
-            {
-                property.intValue = Settings.GetIdByIndex(newIndex);
-            }
-
-            if (GUI.Button(buttonPosition, CLEAR_BUTTON_LABEL))
-            {
-                property.intValue = 0;
-            }
-        }
-
-        private void NEW_OnGUI(Rect position, SerializedProperty property, GUIContent label)
-        {
             using var _ = new EditorGUI.PropertyScope(position, label, property);
 
             position = EditorGUI.PrefixLabel(position, label);
@@ -85,23 +39,15 @@ namespace TatRat.Editor.GameId
 
             using var indent = new EditorGUI.IndentLevelScope(-EditorGUI.indentLevel);
 
-            if (EditorGUI.DropdownButton(
-                    dropdownPosition,
-                    currentIdName.ToGUI(),
-                    FocusType.Keyboard | FocusType.Passive))
-            {
+            if (EditorGUI.DropdownButton(dropdownPosition, currentIdName.ToGUI(),
+                    FocusType.Keyboard | FocusType.Passive)) 
                 ShowSelectGameIdPopup(position, property.Copy());
-            }
 
-            if (GUI.Button(createButtonPosition, CREATE_BUTTON_LABEL))
-            {
+            if (GUI.Button(createButtonPosition, CREATE_BUTTON_LABEL)) 
                 ShowCreateGameIdPopup(position, property.Copy());
-            }
 
-            if (GUI.Button(clearButtonPosition, CLEAR_BUTTON_LABEL))
-            {
+            if (GUI.Button(clearButtonPosition, CLEAR_BUTTON_LABEL)) 
                 property.intValue = 0;
-            }
         }
 
         private void ShowSelectGameIdPopup(Rect rect, SerializedProperty property)

@@ -217,6 +217,8 @@ GameObject:
   m_Component:
   - component: {fileID: 937636054}
   - component: {fileID: 937636053}
+  - component: {fileID: 937636055}
+  - component: {fileID: 937636056}
   m_Layer: 0
   m_Name: SceneLifetimeScope
   m_TagString: Untagged
@@ -237,10 +239,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentReference:
-    TypeName: 
+    TypeName: TatRat.Main.DI.AppLifetimeScope
   autoRun: 1
   autoInjectGameObjects: []
-  _registrators: []
+  _registrators:
+  - {fileID: 937636056}
+  - {fileID: 937636055}
 --- !u!4 &937636054
 Transform:
   m_ObjectHideFlags: 0
@@ -256,6 +260,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &937636055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937636052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92594e5480d948659c4b6a9314bf64b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &937636056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937636052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e69de3b764649ae9aaa8b74a5f40183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1867963280
 GameObject:
   m_ObjectHideFlags: 0
