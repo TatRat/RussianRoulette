@@ -15,3 +15,5 @@ MonoBehaviour:
   _gameIds:
   - _value: 811331641
     _name: test
+  - _value: 731411478
+    _name: characters/bot
