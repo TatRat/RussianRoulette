@@ -1,0 +1,16 @@
+{
+    "name": "TatRat.Advertisements",
+    "rootNamespace": "TatRat.Advertisements",
+    "references": [
+        "GUID:0f165cae77701b74db7b02073e790fd7"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

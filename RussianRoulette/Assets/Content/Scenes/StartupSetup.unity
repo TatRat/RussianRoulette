@@ -135,6 +135,8 @@ GameObject:
   - component: {fileID: 1046323533}
   - component: {fileID: 1046323534}
   - component: {fileID: 1046323535}
+  - component: {fileID: 1046323537}
+  - component: {fileID: 1046323536}
   m_Layer: 0
   m_Name: AppLifeTimeScope
   m_TagString: Untagged
@@ -176,6 +178,8 @@ MonoBehaviour:
   _registrators:
   - {fileID: 1046323535}
   - {fileID: 1046323534}
+  - {fileID: 1046323537}
+  - {fileID: 1046323536}
 --- !u!114 &1046323534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,3 +205,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAsset: {fileID: 11400000, guid: 4bfc55584bc46154d8cd188e5d9dd197, type: 2}
+--- !u!114 &1046323536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046323531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff52e4c328842329d73b5ef076a5f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1046323537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046323531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54350545390e42238144accf46ad422b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
