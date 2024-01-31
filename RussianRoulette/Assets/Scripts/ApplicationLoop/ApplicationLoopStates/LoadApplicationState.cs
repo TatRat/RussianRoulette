@@ -1,12 +1,17 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using TatRat.API;
-using Unity.Plastic.Newtonsoft.Json.Serialization;
 
 namespace TatRat.ApplicationLoop
 {
-    public class LoadApplicationState : IApplicationState, IEnterableState, IExitableState
+    public class LoadApplicationState : ApplicationState, IEnterableState, IExitableState
     {
-        public event Action ConfigApplied; 
+        public event Action ConfigApplied;
+        
+        private readonly IPlatformDataLoader _platformDataLoader;
+
+        public LoadApplicationState(IPlatformDataLoader platformDataLoader) => 
+            _platformDataLoader = platformDataLoader;
 
         public async void Enter()
         {
@@ -16,7 +21,7 @@ namespace TatRat.ApplicationLoop
         private async Task ConfigureApplication()
         {
             // Подгружаем конфиг
-            await Task.CompletedTask;
+            _platformDataLoader.TryToLoad(out string configJSON);
             
             // Применяем конфиг
             

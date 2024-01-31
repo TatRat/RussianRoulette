@@ -1,25 +1,27 @@
-﻿using System;
-using TatRat.API;
+﻿using TatRat.API;
 using UnityEngine;
 
 namespace TatRat.ApplicationLoop
 {
-    public class InactiveApplicationState : IApplicationState, IEnterableState, IExitableState
+    public class InactiveApplicationState : ApplicationState, IEnterableState, IExitableState
     {
-        public event Action ApplicationEnabled;
+        private readonly IPlatformService _platformService;
+
+        public InactiveApplicationState(IPlatformService platformService) => 
+            _platformService = platformService;
 
         public void Enter() => 
-            Application.focusChanged += OnFocusChanged;
+            _platformService.ApplicationVisibilityTypeChanged += OnFocusChanged;
 
         public void Exit() => 
-            Application.focusChanged -= OnFocusChanged;
+            _platformService.ApplicationVisibilityTypeChanged -= OnFocusChanged;
 
-        private void OnFocusChanged(bool isFocused)
+        private void OnFocusChanged(ApplicationVisibilityType applicationVisibilityType)
         {
-            if (!isFocused)
+            if (applicationVisibilityType == ApplicationVisibilityType.Disabled)
                 return;
             
-            ApplicationEnabled?.Invoke();
+            StateMachine.ChangeState<ActiveApplicationState>();
         }
     }
 }

@@ -2,43 +2,22 @@
 using TatRat.API;
 using TatRat.API.API.ApplicationLoop;
 
-namespace TatRat.ApplicationLoop.ApplicationLoop
+namespace TatRat.ApplicationLoop
 {
     public class ApplicationLoopService : IApplicationLoopService
     {
         private readonly StateMachine _applicationStateMachine = new();
 
-        public ApplicationLoopService(IList<IApplicationState> needApplicationStates)
+        public ApplicationLoopService(IList<ApplicationState> needApplicationStates)
         {
-            foreach (IApplicationState state in needApplicationStates) 
+            foreach (ApplicationState state in needApplicationStates)
+            {
+                state.Initialize(_applicationStateMachine);
                 _applicationStateMachine.Add(state);
+            }
         }
 
-        public void StartApplication()
-        {
+        public void StartApplication() => 
             _applicationStateMachine.ChangeState<LoadApplicationState>();
-            _applicationStateMachine.GetCurrentState<LoadApplicationState>().ConfigApplied += ActivateApplication;
-        }
-
-        private void ActivateApplication()
-        {
-            _applicationStateMachine.GetCurrentState<LoadApplicationState>().ConfigApplied -= ActivateApplication;
-            _applicationStateMachine.ChangeState<ActiveApplicationState>();
-            _applicationStateMachine.GetCurrentState<ActiveApplicationState>().ApplicationDisabled += DisableApplication;
-        }
-
-        private void DisableApplication()
-        {
-            _applicationStateMachine.GetCurrentState<ActiveApplicationState>().ApplicationDisabled -= DisableApplication;
-            _applicationStateMachine.ChangeState<InactiveApplicationState>();
-            _applicationStateMachine.GetCurrentState<InactiveApplicationState>().ApplicationEnabled += EnableApplication;
-        }
-
-        private void EnableApplication()
-        {
-            _applicationStateMachine.GetCurrentState<InactiveApplicationState>().ApplicationEnabled -= EnableApplication;
-            _applicationStateMachine.ChangeState<ActiveApplicationState>();
-            _applicationStateMachine.GetCurrentState<ActiveApplicationState>().ApplicationDisabled += DisableApplication;
-        }
     }
 }

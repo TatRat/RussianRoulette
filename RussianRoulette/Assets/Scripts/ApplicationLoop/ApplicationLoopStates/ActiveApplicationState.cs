@@ -1,18 +1,16 @@
-﻿using System;
-using TatRat.API;
-using UnityEngine;
+﻿using TatRat.API;
 
 namespace TatRat.ApplicationLoop
 {
-    public class ActiveApplicationState : IApplicationState, IEnterableState, IExitableState
+    public class ActiveApplicationState : ApplicationState, IEnterableState, IExitableState
     {
-        public event Action ApplicationDisabled;
-        
         private readonly IGameLoopService _gameLoopService;
+        private readonly IPlatformService _platformService;
 
-        public ActiveApplicationState(IGameLoopService gameLoopService)
+        public ActiveApplicationState(IGameLoopService gameLoopService, IPlatformService platformService)
         {
             _gameLoopService = gameLoopService;
+            _platformService = platformService;
         }
 
         public void Enter()
@@ -21,23 +19,23 @@ namespace TatRat.ApplicationLoop
                 _gameLoopService.LoadMenu();
             
             _gameLoopService.UnFreezeGame();
-
-            Application.focusChanged += OnFocusChanged;
+            
+            _platformService.ApplicationVisibilityTypeChanged += OnFocusChanged;
         }
 
         public void Exit()
         {
             _gameLoopService.FreezeGame();
             
-            Application.focusChanged -= OnFocusChanged;
+            _platformService.ApplicationVisibilityTypeChanged -= OnFocusChanged;
         }
 
-        private void OnFocusChanged(bool isFocused)
+        private void OnFocusChanged(ApplicationVisibilityType applicationVisibilityType)
         {
-            if (isFocused)
+            if (applicationVisibilityType == ApplicationVisibilityType.Active)
                 return;
             
-            ApplicationDisabled?.Invoke();
+            StateMachine.ChangeState<InactiveApplicationState>();
         }
     }
 }
