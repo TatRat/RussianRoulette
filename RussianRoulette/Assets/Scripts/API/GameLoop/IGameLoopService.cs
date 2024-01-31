@@ -1,4 +1,4 @@
-﻿namespace TatRat.API.API.GameloopService
+﻿namespace TatRat.API
 {
     public interface IGameLoopService
     {

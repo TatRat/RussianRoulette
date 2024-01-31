@@ -2,7 +2,7 @@
 
 namespace TatRat.GameplayLoop
 {
-    public class RevolverChooseGameloopState : IEnterableState, IExitableState
+    public class RevolverChooseGameloopState : IGameplayLoopState, IEnterableState, IExitableState
     {
         public void Enter()
         {

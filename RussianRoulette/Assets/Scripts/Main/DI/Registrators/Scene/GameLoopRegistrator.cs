@@ -5,7 +5,7 @@ using VContainer;
 
 namespace TatRat.Main
 {
-    internal class GameStateRegistrator : SceneRegistrator
+    internal class GameLoopRegistrator : SceneRegistrator
     {
         public override void Register(IContainerBuilder builder)
         {
