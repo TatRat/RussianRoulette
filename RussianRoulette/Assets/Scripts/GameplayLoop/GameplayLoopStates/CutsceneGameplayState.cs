@@ -2,7 +2,7 @@
 
 namespace TatRat.GameplayLoop
 {
-    public class CutsceneGameplayState : IEnterableState, IExitableState
+    public class CutsceneGameplayState : IGameplayLoopState, IEnterableState, IExitableState
     {
         public void Enter()
         {

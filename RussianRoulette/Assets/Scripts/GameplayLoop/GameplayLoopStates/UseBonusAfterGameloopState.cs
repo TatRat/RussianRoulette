@@ -2,7 +2,7 @@
 
 namespace TatRat.GameplayLoop
 {
-    public class UseBonusAfterGameloopState : IEnterableState, IExitableState
+    public class UseBonusAfterGameloopState : IGameplayLoopState, IEnterableState, IExitableState
     {
         public void Enter()
         {

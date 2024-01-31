@@ -1,6 +1,5 @@
 ﻿using System;
 using TatRat.API;
-using TatRat.API.API.GameloopService;
 using UnityEngine;
 
 namespace TatRat.ApplicationLoop

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using TatRat.API;
-using TatRat.API.API.GameloopService;
 using TatRat.GameLoop;
 
 namespace GameLoop
