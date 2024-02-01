@@ -4,7 +4,7 @@ using TatRat.API;
 
 namespace TatRat.ApplicationLoop
 {
-    public class LoadApplicationState : ApplicationState, IEnterableState, IExitableState
+    public class LoadApplicationState : IApplicationState, IEnterableState, IExitableState
     {
         public event Action ConfigApplied;
         
@@ -21,7 +21,7 @@ namespace TatRat.ApplicationLoop
         private async Task ConfigureApplication()
         {
             // Подгружаем конфиг
-            _platformDataLoader.TryToLoad(out string configJSON);
+            _platformDataLoader.TryToLoad(out string stringJSON);
             
             // Применяем конфиг
             

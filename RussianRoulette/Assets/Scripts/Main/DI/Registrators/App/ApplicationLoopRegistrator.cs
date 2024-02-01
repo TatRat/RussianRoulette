@@ -1,5 +1,4 @@
 ﻿using TatRat.ApplicationLoop;
-using TatRat.ApplicationLoop.ApplicationLoop;
 using TatRat.Main.DI;
 using VContainer;
 
