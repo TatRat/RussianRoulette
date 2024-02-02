@@ -1,0 +1,16 @@
+{
+    "name": "TatRat.ApplicationLoop",
+    "rootNamespace": "TatRat.ApplicationLoop",
+    "references": [
+        "GUID:0f165cae77701b74db7b02073e790fd7"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
