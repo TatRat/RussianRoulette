@@ -3,6 +3,8 @@
     "rootNamespace": "TatRat.Main",
     "references": [
         "GUID:0f165cae77701b74db7b02073e790fd7",
+        "GUID:a80bfdb5f91f63d49af3acb4d3259dc5",
+        "GUID:998013db07b5c584d91818b5152d5ad3",
         "GUID:04368328795881640b90d372a409ddcb",
         "GUID:60a65ff892152a947bde39d614e19ecf",
         "GUID:84f4e0c2b7486b64192a026de30ae974",
@@ -13,7 +15,6 @@
         "GUID:cf4f7428c9b9cae46a9b34c86c3bc0c1",
         "GUID:8cc799700abc3ef4ca17f0c741625630",
         "GUID:e113d531589729249b154ae5473e5586",
-        "GUID:a80bfdb5f91f63d49af3acb4d3259dc5",
         "GUID:ebcf02c926b68c44997a81ab41c5a714"
     ],
     "includePlatforms": [],

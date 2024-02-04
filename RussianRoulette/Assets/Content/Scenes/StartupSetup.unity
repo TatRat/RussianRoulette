@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 1046323535}
   - component: {fileID: 1046323537}
   - component: {fileID: 1046323536}
+  - component: {fileID: 1046323538}
   m_Layer: 0
   m_Name: AppLifeTimeScope
   m_TagString: Untagged
@@ -180,6 +181,7 @@ MonoBehaviour:
   - {fileID: 1046323534}
   - {fileID: 1046323537}
   - {fileID: 1046323536}
+  - {fileID: 1046323538}
 --- !u!114 &1046323534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,3 +231,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54350545390e42238144accf46ad422b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1046323538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046323531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f99e07d3ba4938a96d517245433cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bonusesDataAsset: {fileID: 11400000, guid: d53584ad0eceee344a9d21b361595baa, type: 2}
