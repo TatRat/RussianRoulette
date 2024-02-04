@@ -2,6 +2,6 @@
 {
     public interface IBonusService : IService
     {
-        public AbstractBonusView GetRandomBonusView();
+        public AbstractBonusView GetRandomBonus();
     }
 }

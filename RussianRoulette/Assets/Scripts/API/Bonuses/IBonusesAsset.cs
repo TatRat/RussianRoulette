@@ -1,7 +1,9 @@
-﻿namespace TatRat.API
+﻿using System.Collections.Generic;
+
+namespace TatRat.API
 {
     public interface IBonusesAsset
     {
-        public 
+        public IReadOnlyList<IBonusDataConfig> DataPairs { get; }
     }
 }

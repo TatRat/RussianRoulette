@@ -4,6 +4,7 @@ namespace TatRat.GameLoop
 {
     public class MenuGameState : IEnterableState, IExitableState
     {
+        //юзай SO
         private const string MenuSceneName = "Menu";
         
         private readonly ISceneLoadService _sceneLoadService;
