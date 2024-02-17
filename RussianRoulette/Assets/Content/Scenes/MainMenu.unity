@@ -938,6 +938,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 470181220}
     m_Modifications:
+    - target: {fileID: 511243496934806245, guid: 18eef691e00c70649a479e2d4e353507, type: 3}
+      propertyPath: translationName
+      value: Roulette
+      objectReference: {fileID: 0}
     - target: {fileID: 3735451106449391383, guid: 18eef691e00c70649a479e2d4e353507, type: 3}
       propertyPath: m_text
       value: "\u0420\u0443\u043B\u0435\u0442\u043A\u0430"
@@ -1529,6 +1533,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 470181220}
     m_Modifications:
+    - target: {fileID: 511243496934806245, guid: 18eef691e00c70649a479e2d4e353507, type: 3}
+      propertyPath: translationName
+      value: Russian
+      objectReference: {fileID: 0}
     - target: {fileID: 3735451106449391383, guid: 18eef691e00c70649a479e2d4e353507, type: 3}
       propertyPath: m_text
       value: "\u0420\u0443\u0441\u0441\u043A\u0430\u044F"

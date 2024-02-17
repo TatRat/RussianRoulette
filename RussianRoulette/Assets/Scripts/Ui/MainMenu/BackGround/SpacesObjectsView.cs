@@ -21,7 +21,7 @@ namespace Ui.MainMenu.BackGround
         [SerializeField] private float _minRandomMovementSpeed;
         [SerializeField] private float _maxRandomMovementSpeed;
         [SerializeField] private Vector3 _speedMovementDirection;
-        [Space] 
+        [Space]
         [Header("Rotation")]
         [SerializeField] private bool _isEnableRotaionX;
         [SerializeField] private bool _isEnableRotaionY;
@@ -39,12 +39,10 @@ namespace Ui.MainMenu.BackGround
         private List<SpaceObjectModel> _spawnedObjects = new List<SpaceObjectModel>();
         private void Start()
         {
-            for (int i = 0; i < _countObjects; i++)
-            {
+            for (int i = 0; i < _countObjects; i++) 
                 InstantiateObject();
-            }
         }
-
+        
         private void Update()
         {
             foreach (var objectModel in _spawnedObjects)
@@ -54,7 +52,7 @@ namespace Ui.MainMenu.BackGround
                 CheckBordersObject(objectModel);
             }
         }
-
+        
         private void InstantiateObject()
         {
             var prefab = _objectPrefabs.GetRandom();
@@ -63,12 +61,12 @@ namespace Ui.MainMenu.BackGround
             var spawningZone = _sizeSpace - (Vector3.one * _deltaSpawningPositionAboutBorder);
             var spawningPos = transform.position.GetRandom(spawningZone);
             go.transform.position = spawningPos;
-
+            
             go.transform.rotation = Quaternion.Euler(GetRandomStartRotation());
             
             var movementSpeed = Random.Range(_minRandomMovementSpeed, _maxRandomMovementSpeed);
             var rotationSpeed = GetRandomRotationSpeed();
-            var model = new SpaceObjectModel()
+            var model = new SpaceObjectModel
             {
                 GameObject = go,
                 MovementSpeed = movementSpeed,
@@ -76,10 +74,10 @@ namespace Ui.MainMenu.BackGround
             };
             _spawnedObjects.Add(model);
         }
-
+        
         private Vector3 GetRandomStartRotation()
         {
-            Vector3 res = Vector3.zero;
+            var res = Vector3.zero;
             res.x = _isRandomStartRotaionX? GetRandomStartRotationAxis() : 0;
             res.y = _isRandomStartRotaionY? GetRandomStartRotationAxis() : 0;
             res.z = _isRandomStartRotaionZ? GetRandomStartRotationAxis() : 0;
@@ -91,21 +89,19 @@ namespace Ui.MainMenu.BackGround
         
         private Vector3 GetRandomRotationSpeed()
         {
-            Vector3 res = Vector3.zero;
+            var res = Vector3.zero;
             res.x = _isEnableRotaionX? GetRandomRotationSpeedAxis() : 0;
             res.y = _isEnableRotaionY? GetRandomRotationSpeedAxis() : 0;
             res.z = _isEnableRotaionZ? GetRandomRotationSpeedAxis() : 0;
             return res;
         }
-
+        
         private float GetRandomRotationSpeedAxis() => 
             Random.Range(_minRandomRotationSpeed, _maxRandomRotationSpeed);
-
-        private void MoveObject(SpaceObjectModel objectModel)
-        {
-            objectModel.GameObject.transform.position +=
+        
+        private void MoveObject(SpaceObjectModel objectModel) =>
+            objectModel.GameObject.transform.position += 
                 objectModel.MovementSpeed * Time.deltaTime * _speedMovementDirection;
-        }
         
         private void CheckBordersObject(SpaceObjectModel objectModel)
         {
@@ -119,21 +115,23 @@ namespace Ui.MainMenu.BackGround
                 curPos.y = centerPos.y - (deltaPos.y - (_deltaTeleportBorder * deltaPos.y < 0 ? -1 : 1));
             if (absDeltaPos.z > _sizeSpace.z)
                 curPos.z = centerPos.z - (deltaPos.z - (_deltaTeleportBorder * deltaPos.z < 0 ? -1 : 1));
-
+            
             objectModel.GameObject.transform.position = curPos;
         }
-
+        
         private void RotateObject(SpaceObjectModel objectModel)
         {
             var curRot = objectModel.GameObject.transform.rotation.eulerAngles;
             curRot += objectModel.RotationSpeed * Time.deltaTime;
             objectModel.GameObject.transform.rotation = Quaternion.Euler(curRot);
         }
-
+        
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.green;
             Gizmos.DrawWireCube(transform.position, _sizeSpace * 2);
         }
+#endif
     }
 }
