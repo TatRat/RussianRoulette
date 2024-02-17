@@ -4,9 +4,6 @@ namespace TatRat.GameLoop
 {
     public class MenuGameState : IEnterableState, IExitableState
     {
-        //юзай SO
-        private const string MenuSceneName = "Menu";
-        
         private readonly ISceneLoadService _sceneLoadService;
 
         public MenuGameState(ISceneLoadService sceneLoadService)
@@ -14,10 +11,8 @@ namespace TatRat.GameLoop
             _sceneLoadService = sceneLoadService;
         }
 
-        public async void Enter()
-        {
-            await _sceneLoadService.LoadSceneAsync(MenuSceneName);
-        }
+        public async void Enter() => 
+            await _sceneLoadService.LoadSceneAsync(GameLoopConstants.MENU_SCENE_NAME);
 
         public void Exit()
         {
