@@ -2,22 +2,15 @@
 
 namespace TatRat.GameLoop
 {
-    public class GameGameState : IEnterableState, IExitableState
+    public class GameGameState : GameState, IEnterableState, IExitableState
     {
-        //юзай SO
-        private const string GameSceneName = "GameScene";
-        
         private readonly ISceneLoadService _sceneLoadService;
 
-        public GameGameState(ISceneLoadService sceneLoadService)
-        {
+        public GameGameState(ISceneLoadService sceneLoadService) => 
             _sceneLoadService = sceneLoadService;
-        }
-        
-        public async void Enter()
-        {
-            await _sceneLoadService.LoadSceneAsync(GameSceneName);
-        }
+
+        public async void Enter() => 
+            await _sceneLoadService.LoadSceneAsync(GameLoopConstants.GAME_SCENE_NAME);
 
         public void Exit()
         {
