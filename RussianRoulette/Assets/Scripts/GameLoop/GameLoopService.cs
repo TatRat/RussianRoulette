@@ -8,10 +8,13 @@ namespace GameLoop
     {
         private StateMachine _gameloopStateMachine = new();
 
-        public GameLoopService(IList<IGameState> needGameStates)
+        public GameLoopService(IList<GameState> needGameStates)
         {
-            foreach (IGameState state in needGameStates) 
+            foreach (GameState state in needGameStates)
+            {
+                state.Initialize(_gameloopStateMachine);
                 _gameloopStateMachine.Add(state);
+            }
         }
 
         public bool IsStarted { get; private set; } = false;

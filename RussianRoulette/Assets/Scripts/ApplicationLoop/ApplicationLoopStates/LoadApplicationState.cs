@@ -1,22 +1,17 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using TatRat.API;
 
 namespace TatRat.ApplicationLoop
 {
-    public class LoadApplicationState : IApplicationState, IEnterableState, IExitableState
+    public class LoadApplicationState : ApplicationState, IEnterableState, IExitableState
     {
-        public event Action ConfigApplied;
-        
         private readonly IPlatformDataLoader _platformDataLoader;
 
         public LoadApplicationState(IPlatformDataLoader platformDataLoader) => 
             _platformDataLoader = platformDataLoader;
 
-        public async void Enter()
-        {
+        public async void Enter() => 
             await ConfigureApplication();
-        }
 
         private async Task ConfigureApplication()
         {
@@ -25,8 +20,7 @@ namespace TatRat.ApplicationLoop
             
             // Применяем конфиг
             
-            
-            ConfigApplied?.Invoke();
+            StateMachine.ChangeState<ActiveApplicationState>();
         }
 
         public void Exit()
